@@ -29,3 +29,17 @@ workflows:
             branches:
               only:
                 - main
+deploy:
+  docker:
+    - image: circleci/node:10.16.3
+
+  steps:
+    - run:
+        name: deploy-application
+        command: |
+          ssh -o StrictHostKeyChecking=no \
+          $EC2_USERNAME@ec2-50-17-31-66.compute-1.amazonaws.com "
+            rm -rf ExampleApplication;
+            git clone https://github.com/Soumya-RKumar/ExampleApplication.git;
+            source ExampleApplication/deploy.sh
+          "                
