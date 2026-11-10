@@ -5,8 +5,8 @@ sudo npm install -g pm2
 #Stop any instance of our application running currently
 pm2 stop example_app
 #Change directory to folder where application is downloaded.
-cd ExampleApp
+cd ExampleApplication
 #Install application dependencies
 npm install
 #Start the application with the process name example_app using pm2
-pm2 start ./bin/www –name example_app
+pm2 start ./bin/www --name example_app
